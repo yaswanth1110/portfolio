@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" class="light-mode"> <!-- Default to light mode -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patnam Yaswanth Reddy - Software Engineer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+</head>
+<body>
+    <header id="header">
+        <nav class="container">
+            <a href="#hero" class="logo">YR<span class="logo-dot">.</span></a>
+            <ul class="nav-links">
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#experience" class="nav-link">Journey</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-extras">
+                <button id="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <span class="hero-greeting">Hello, I'm</span>
+                    <h1 class="hero-name">Patnam Yaswanth Reddy</h1>
+                    <p class="hero-subtitle">
+                        <span class="static-text">A </span>
+                        <span id="typed-text" class="typed-text"></span>
+                    </p>
+                    <p class="hero-description">
+                        2024 Computer Science graduate from Hyderabad, India, with a passion for crafting elegant and efficient software solutions using Java and Spring.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">Explore My Work</a>
+                        <a href="assets/Resume_Yaswanth_Reddy.pdf" target="_blank" class="btn btn-secondary" download>Download CV <i class="fas fa-download"></i></a>
+                    </div>
+                    <div class="hero-socials">
+                        <a href="https://linkedin.com/in/yaswanth-reddy-patnam" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/yaswanth1110" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-image-placeholder-shape">
+                         <img src="images/photo me.jpg" alt="Patnam Yaswanth Reddy" class="hero-profile-img">
+                    </div>
+                </div>
+            </div>
+            <a href="#about" class="scroll-down-indicator" aria-label="Scroll to about section">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title"><span>About Me</span></h2>
+                <div class="about-grid">
+                    <div class="about-image-container">
+                        <img src="images/InShot_20230425_181629389.jpg" alt="Yaswanth Reddy" class="about-image">
+
+                    </div>
+                    <div class="about-text">
+                        <h3>Driven by Code, Defined by Solutions.</h3>
+                        <p>
+                            Hi, I’m Patnam Yaswanth Reddy — a recent B.Tech graduate in Computer Science & Engineering from Velammal Institute of Technology. My journey into software engineering is driven by an insatiable curiosity and a deep passion for backend development, especially with Java and the Spring ecosystem.
+                        </p>
+                        <p>
+                            I thrive on dissecting complex problems and designing secure, scalable backend systems that address real-world needs.
+                            Collaboration, problem-solving, and clear communication are at the heart of how I work — whether it’s through academic projects, leading team events, or contributing to service programs like NSS. I believe impactful technology is built not just with skill, but with teamwork and a purpose-driven mindset.
+                        </p>
+                        <p>
+                            Beyond the screen, I'm always eager to learn, adapt, and contribute to impactful projects. When I’m not immersed in code, you’ll likely find me on the cricket field — strategizing for a match or enjoying the rhythm of team play. Let's build something amazing together!
+                        </p>
+                         <a href="#contact" class="btn btn-outline">Let's Connect</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <h2 class="section-title"><span>My Creations</span></h2>
+                <p class="section-subtitle">Here's a selection of projects that showcase my skills and passion.</p>
+                <div class="project-grid">
+                    <div class="project-card hover-effect-card"> <!-- Added hover-effect-card -->
+                        <div class="project-image-wrapper">
+                            <img src="https://via.placeholder.com/600x338/0A2540/fff?text=MedSync" alt="MedSync Project Screenshot">
+                        </div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">JWT</span><span class="tag">Backend</span>
+                            </div>
+                            <h3 class="project-title">MedSync – Healthcare Management</h3>
+                            <p class="project-description">A secure, modular backend for healthcare management, featuring JWT authentication, role-based access, and a layered service architecture.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/yaswanth1110/MedSync-Healthcare-Management" class="btn btn-sm btn-outline" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card hover-effect-card"> <!-- Added hover-effect-card -->
+                        <div class="project-image-wrapper">
+                            <img src="https://via.placeholder.com/600x338/6B7C93/fff?text=Solar+Prediction" alt="Solar Power Prediction Project Screenshot">
+                        </div>
+                        <div class="project-content">
+                             <div class="project-tags">
+                                <span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">ML</span><span class="tag">Sensors</span>
+                            </div>
+                            <h3 class="project-title">Adaptive Solar Power Prediction</h3>
+                            <p class="project-description">An ML-driven system using Scikit-learn and real-time sensor data to predict solar power generation, improving site selection and risk management.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/yaswanth1110/Solar-Power-Generation-Prediction-using-Scikit-Learn" class="btn btn-sm btn-outline" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card hover-effect-card"> <!-- Added hover-effect-card -->
+                        <div class="project-image-wrapper">
+                            <img src="https://via.placeholder.com/600x338/00C9FF/000?text=VoiceGPT" alt="VoiceGPT Assistant Project Screenshot">
+                        </div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="tag">Java</span><span class="tag">OpenAI GPT-3</span><span class="tag">Voice API</span>
+                            </div>
+                            <h3 class="project-title">VoiceGPT Assistant</h3>
+                            <p class="project-description">A Java-based voice bot leveraging OpenAI's GPT-3 and prompt engineering for real-time, context-aware voice interactions.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/yaswanth1110/VoiceGPT" class="btn btn-sm btn-outline" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills-section">
+            <div class="container">
+                <h2 class="section-title"><span>My Toolbox</span></h2>
+                <p class="section-subtitle">The core technologies and tools I utilize to build and innovate.</p>
+                <div class="skills-categories">
+                    <div class="skill-category-card hover-effect-card">
+                        <h4><i class="fas fa-desktop"></i> Frontend</h4>
+                        <ul>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                            <li>jQuery</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category-card hover-effect-card">
+                        <h4><i class="fas fa-server"></i> Backend</h4>
+                        <ul>
+                            <li>Java</li>
+                            <li>Spring Boot</li>
+                            <li>SQL</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category-card hover-effect-card">
+                        <h4><i class="fas fa-database"></i> Databases</h4>
+                        <ul>
+                            <li>MySQL</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category-card hover-effect-card">
+                        <h4><i class="fas fa-tools"></i> Tools & IDEs</h4>
+                        <ul>
+                            <li>VS Code</li>
+                            <li>IntelliJ IDEA</li>
+                            <li>Postman</li>
+                            <li>Maven</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category-card hover-effect-card">
+                        <h4><i class="fas fa-ellipsis-h"></i> Others</h4>
+                        <ul>
+                            <li>JSON</li>
+                            <li>AJAX</li>
+                        </ul>
+                    </div>
+                </div>
+                 <div class="certificates-showcase">
+                    <h3>Certifications</h3>
+                    <div class="certificate-item"><i class="fas fa-award"></i> Java Programming – Frontlines EduTech</div>
+                    <div class="certificate-item"><i class="fas fa-award"></i> SQL – HackerRank</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="experience-section">
+            <div class="container">
+                <h2 class="section-title"><span>My Journey</span></h2>
+                <p class="section-subtitle">Key milestones and responsibilities that have shaped my growth.</p>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><i class="fas fa-user-graduate"></i></div>
+                        <div class="timeline-content hover-effect-card"> <!-- Added hover-effect-card -->
+                            <h4>B.Tech, Computer Science & Engineering</h4>
+                            <span class="timeline-date">2020 – 2024</span>
+                            <p>Velammal Institute of Technology, Chennai. CGPA: 8.82. Focused on core CS principles, software development, and backend technologies.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><i class="fas fa-trophy"></i></div>
+                        <div class="timeline-content hover-effect-card"> <!-- Added hover-effect-card -->
+                            <h4>Cricket Event Coordinator</h4>
+                            <span class="timeline-date">Feb 2024</span>
+                            <p>Led coordination for a tournament with 14 teams & 150+ attendees. Managed a team of 5, demonstrating leadership and organizational skills.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><i class="fas fa-users"></i></div>
+                        <div class="timeline-content hover-effect-card"> <!-- Added hover-effect-card -->
+                            <h4>National Service Scheme (NSS) Volunteer</h4>
+                            <span class="timeline-date">During College</span>
+                            <p>Actively contributed to community outreach programs including blood donation camps, cleanliness drives, and tree plantation initiatives.</p>
+                        </div>
+                    </div>
+                     <div class="timeline-item">
+                        <div class="timeline-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="timeline-content hover-effect-card"> <!-- Added hover-effect-card -->
+                            <h4>Higher Secondary (HSC)</h4>
+                            <span class="timeline-date">2018 – 2020</span>
+                            <p>Narayana Jr College. Specialization: Physics, Chemistry, Mathematics. Score: 9.73/10.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section dark-bg">
+            <div class="container">
+                <h2 class="section-title"><span>Get In Touch</span></h2>
+                <p class="section-subtitle">Have a project in mind, an opportunity, or just want to say hi? My inbox is always open.</p>
+                <div class="contact-layout">
+                    <div class="contact-details">
+                        <h3>Let's Connect & Collaborate!</h3>
+                        <p>I'm excited to discuss how my skills can contribute to your team or project. Reach out through any of these channels:</p>
+                        <ul>
+                            <li><i class="fas fa-envelope"></i> <a href="mailto:pyreddy1110@gmail.com">pyreddy1110@gmail.com</a></li>
+                            <li><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/yaswanth-reddy-patnam" target="_blank">linkedin.com/in/yaswanth-reddy-patnam</a></li>
+                            <li><i class="fab fa-github"></i> <a href="https://github.com/yaswanth1110" target="_blank">github.com/yourusername</a></li>
+                            <li><i class="fas fa-map-marker-alt"></i> Hyderabad, India</li>
+                        </ul>
+                    </div>
+                    <div class="contact-form-container hover-effect-card"> <!-- Added hover-effect-card -->
+                        <form id="contact-form" action="YOUR_FORMSPREE_ENDPOINT_URL" method="POST">
+                            <div class="form-group">
+                                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                                <label for="name">Your Name</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                                <label for="email">Your Email</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="subject" name="subject" placeholder="Subject">
+                                <label for="subject">Subject</label>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                                <label for="message">Your Message</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-submit">Send Message <i class="fas fa-paper-plane"></i></button>
+                            <p id="form-status" class="form-status-message"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-socials">
+                 <a href="https://linkedin.com/in/yaswanth-reddy-patnam" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                 <a href="https://github.com/yaswanth1110" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+            <p>© <span id="currentYear"></span> Patnam Yaswanth Reddy. All rights reserved.</p>
+            <p>Designed with <i class="fas fa-heart"></i> and Coded with <i class="fas fa-code"></i>.</p>
+        </div>
+    </footer>
+
+    <button id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="script.js"></script>
+</body>
+</html>
