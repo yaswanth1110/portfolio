@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // === SMOOTH SCROLL & ACTIVE NAV LINK ===
     function smoothScrollTo(targetElement) {
         const headerOffset = header.offsetHeight;
-        // Use the defined scrollBuffer
         const effectiveHeaderOffset = headerOffset + scrollBuffer;
         const elementPosition = targetElement.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - effectiveHeaderOffset;
@@ -48,12 +47,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateActiveNavLink() {
         let currentSectionId = 'hero';
         const headerOffset = header.offsetHeight;
-        // Use the defined scrollBuffer for active link detection as well
         const effectiveHeaderOffset = headerOffset + scrollBuffer;
 
 
         sections.forEach(section => {
-            // Trigger when the top of the section (including its padding) passes the effective header bottom
             const sectionTop = section.offsetTop - effectiveHeaderOffset;
             if (window.pageYOffset >= sectionTop) {
                 currentSectionId = section.getAttribute('id');
@@ -66,8 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 link.classList.add('active');
             }
         });
-         // Ensure hero is active if at the very top or no other section matches
-        if (currentSectionId === 'hero' && window.pageYOffset < sections[0].offsetTop - effectiveHeaderOffset) {
+        if (currentSectionId === 'hero' && window.pageYOffset < (sections[0].offsetTop - effectiveHeaderOffset)) {
              navLinks.forEach(link => link.classList.remove('active'));
              const homeLink = document.querySelector('.nav-link[href="#hero"]');
              if(homeLink) homeLink.classList.add('active');
@@ -90,13 +86,15 @@ document.addEventListener('DOMContentLoaded', function() {
         updateActiveNavLink();
     });
 
-    backToTopButton.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    if (backToTopButton) { // Check if button exists
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
 
 
     // === MOBILE MENU TOGGLE ===
-    if (menuToggle) {
+    if (menuToggle && navLinksContainer) { // Check if elements exist
         menuToggle.addEventListener('click', () => {
             navLinksContainer.classList.toggle('active');
             menuToggle.classList.toggle('active');
@@ -116,13 +114,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // === THEME TOGGLE (DARK/LIGHT MODE) ===
     const currentTheme = localStorage.getItem('theme') || 'light-mode';
     document.documentElement.className = currentTheme;
-    if (themeToggle) {
-        themeToggle.querySelector('i').className = currentTheme === 'light-mode' ? 'fas fa-moon' : 'fas fa-sun';
+    if (themeToggle) { // Check if button exists
+        const themeIcon = themeToggle.querySelector('i');
+        if (themeIcon) themeIcon.className = currentTheme === 'light-mode' ? 'fas fa-moon' : 'fas fa-sun';
+        
         themeToggle.addEventListener('click', () => {
             let newTheme = document.documentElement.classList.contains('light-mode') ? 'dark-mode' : 'light-mode';
             document.documentElement.className = newTheme;
             localStorage.setItem('theme', newTheme);
-            themeToggle.querySelector('i').className = newTheme === 'light-mode' ? 'fas fa-moon' : 'fas fa-sun';
+            if (themeIcon) themeIcon.className = newTheme === 'light-mode' ? 'fas fa-moon' : 'fas fa-sun';
         });
     }
 
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // === CONTACT FORM (FORMSPREE) ===
     const contactForm = document.getElementById('contact-form');
     const formStatus = document.getElementById('form-status');
-    if (contactForm) {
+    if (contactForm && formStatus) { // Check if elements exist
         contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             const formData = new FormData(this);
@@ -168,8 +168,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const animatedSections = document.querySelectorAll('main section');
     const sectionObserverOptions = {
         root: null,
-        rootMargin: '0px 0px -100px 0px', // Trigger when element is 100px from bottom
-        threshold: 0.05 // Trigger when 5% of the section is visible
+        rootMargin: '0px 0px -100px 0px',
+        threshold: 0.05
     };
 
     if ('IntersectionObserver' in window) {
@@ -177,15 +177,11 @@ document.addEventListener('DOMContentLoaded', function() {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
-                    // observer.unobserve(entry.target); // Uncomment to animate only once
-                } else {
-                     // entry.target.classList.remove('is-visible'); // Uncomment to re-animate on scroll up
                 }
             });
         }, sectionObserverOptions);
 
         animatedSections.forEach(section => {
-            // Hero section has its own animation, no need to observe it for this general reveal
             if (section.id !== 'hero') {
                 sectionObserver.observe(section);
             }
@@ -199,7 +195,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // === TYPING ANIMATION FOR HERO SUBTITLE ===
-    if (typedTextSpan) {
+    if (typedTextSpan) { // Check if element exists
         const roles = ["Software Engineer", "Java Developer", "Spring Enthusiast", "Problem Solver"];
         let roleIndex = 0;
         let charIndex = 0;
@@ -232,5 +228,26 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(type, 500);
     }
 
-    updateActiveNavLink(); // Initial call
+    // Initial call to set active nav link and check section visibility
+    // Needs to be called after a slight delay to ensure layout is complete for offsets
+    setTimeout(() => {
+        updateActiveNavLink();
+        // Manually trigger scroll event once to check initial visible sections for animations
+        // This helps if sections are already in view on page load
+        if ('IntersectionObserver' in window && animatedSections.length > 0) {
+            const initialCheckObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Unobserve after initial check
+                    }
+                });
+            }, sectionObserverOptions);
+            animatedSections.forEach(section => {
+                 if (section.id !== 'hero') {
+                    initialCheckObserver.observe(section);
+                 }
+            });
+        }
+    }, 100);
 });
