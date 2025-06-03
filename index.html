@@ -59,7 +59,7 @@
                 </div>
                 <div class="hero-visual">
                     <div class="hero-image-placeholder-shape">
-                         <img src="images/photo me.jpg" alt="Patnam Yaswanth Reddy" class="hero-profile-img">
+                         <img src="images/photo-me.jpg" alt="Patnam Yaswanth Reddy" class="hero-profile-img">
                     </div>
                 </div>
             </div>
@@ -73,7 +73,7 @@
                 <h2 class="section-title"><span>About Me</span></h2>
                 <div class="about-grid">
                     <div class="about-image-container">
-                        <img src="images/InShot_20230425_181629389.jpg" alt="Yaswanth Reddy" class="about-image">
+                        <img src="images/about-cover.jpg" alt="Yaswanth Reddy" class="about-image">
 
                     </div>
                     <div class="about-text">
@@ -101,7 +101,7 @@
                 <div class="project-grid">
                     <div class="project-card hover-effect-card"> <!-- Added hover-effect-card -->
                         <div class="project-image-wrapper">
-                            <img src="https://via.placeholder.com/600x338/0A2540/fff?text=MedSync" alt="MedSync Project Screenshot">
+                            <img src="images/medsync-cover.webp" alt="MedSync Project Screenshot">
                         </div>
                         <div class="project-content">
                             <div class="project-tags">
@@ -116,7 +116,7 @@
                     </div>
                     <div class="project-card hover-effect-card"> <!-- Added hover-effect-card -->
                         <div class="project-image-wrapper">
-                            <img src="https://via.placeholder.com/600x338/6B7C93/fff?text=Solar+Prediction" alt="Solar Power Prediction Project Screenshot">
+                            <img src="images/solar-cover-1.png" alt="Solar Power Prediction Project Screenshot">
                         </div>
                         <div class="project-content">
                              <div class="project-tags">
@@ -131,7 +131,7 @@
                     </div>
                     <div class="project-card hover-effect-card"> <!-- Added hover-effect-card -->
                         <div class="project-image-wrapper">
-                            <img src="https://via.placeholder.com/600x338/00C9FF/000?text=VoiceGPT" alt="VoiceGPT Assistant Project Screenshot">
+                            <img src="images/voicegpt-cover.png" alt="VoiceGPT Assistant Project Screenshot">
                         </div>
                         <div class="project-content">
                             <div class="project-tags">
@@ -289,7 +289,11 @@
                         </ul>
                     </div>
                     <div class="contact-form-container hover-effect-card"> <!-- Added hover-effect-card -->
-                        <form id="contact-form" action="YOUR_FORMSPREE_ENDPOINT_URL" method="POST">
+                        <form id="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                            <input type="hidden" name="form-name" value="contact">
+                            <p style="display:none;"> <!-- Visually hidden honeypot field -->
+                                <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
+                            </p>
                             <div class="form-group">
                                 <input type="text" id="name" name="name" placeholder="Your Name" required>
                                 <label for="name">Your Name</label>
