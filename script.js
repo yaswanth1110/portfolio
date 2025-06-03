@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
         currentYearSpan.textContent = new Date().getFullYear();
     }
 
-    // === CONTACT FORM (NETLIFY AJAX SUBMISSION) ===
+        // === CONTACT FORM (NETLIFY AJAX SUBMISSION) ===
     const contactForm = document.getElementById('contact-form');
     const formStatus = document.getElementById('form-status');
 
@@ -141,29 +141,21 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
 
             const formData = new FormData(this);
-            const formName = this.getAttribute('name'); // Get form name (e.g., "contact")
+            // The hidden "form-name" input in your HTML will be part of formData
 
-            // For Netlify AJAX submission, we need to URL-encode the data
-            // and include the "form-name" field.
             const encodedData = new URLSearchParams();
             formData.forEach((value, key) => {
                 encodedData.append(key, value);
             });
-            // Ensure the hidden "form-name" input from your HTML is part of formData,
-            // or add it explicitly if it's not being picked up by new FormData(this)
-            // For Netlify, the 'form-name' attribute from the <form> tag itself isn't automatically part of FormData
-            // So, we ensure the hidden input <input type="hidden" name="form-name" value="contact"> is processed.
-            // If it is, new FormData(this) will include it. If not, you might need to add:
-            // encodedData.append('form-name', formName); // Re-check if new FormData(this) includes hidden fields. It should.
 
             formStatus.textContent = 'Sending...';
             formStatus.className = 'form-status-message'; // Reset classes
 
             try {
-                const response = await fetch("/", { // Post to the current page (root) for Netlify
+                const response = await fetch("/", { // Post to the current page path for Netlify
                     method: 'POST',
                     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                    body: encodedData.toString() // Send URL-encoded data
+                    body: encodedData.toString()
                 });
 
                 if (response.ok) {
@@ -171,9 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     formStatus.classList.add('success');
                     contactForm.reset();
                 } else {
-                    // Netlify usually returns a 200 OK even for some errors with AJAX if not properly caught server-side,
-                    // but actual server errors or network issues would make response.ok false.
-                    const responseText = await response.text(); // Get raw response for debugging
+                    const responseText = await response.text();
                     console.error("Netlify form submission error response:", responseText, response.status);
                     formStatus.textContent = "Oops! Form submission failed. Please try again.";
                     formStatus.classList.add('error');
